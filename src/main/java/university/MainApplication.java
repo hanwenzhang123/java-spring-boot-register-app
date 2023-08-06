@@ -2,8 +2,12 @@ package university;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import university.models.Course;
+import university.services.CourseService;
 
 import java.util.Collections;
 
@@ -19,5 +23,18 @@ public class MainApplication {
 		app.setDefaultProperties(Collections
 				.singletonMap("server.port", "8888"));
 		app.run(args);
+	}
+
+	@Bean
+	public CommandLineRunner demo(CourseService repository) {
+		return (args) -> {
+			//log.info("Clear data:");
+			log.info("-------------------------------");
+			//repository.deleteAll();
+
+			log.info("Insert data:");
+			log.info("-------------------------------");
+
+		};
 	}
 }

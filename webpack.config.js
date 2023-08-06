@@ -1,6 +1,5 @@
 module.exports = {
     devtool: 'source-map',
-    watch: true,
     output: {
         filename: 'react-app.js'
     },

@@ -1,9 +1,14 @@
 # Course Registration App
 
 # To Run the Application
-> ./gradlew bootRun
 
 # Testing the REST HTTP GET Endpoints
+
+# View Data in H2 Console
+http://localhost:8888/h2-console
+- JDBC Url: jdbc:h2:~/test
+- Username: sa
+- Password:
 
 ## Resources
 - https://start.spring.io/
