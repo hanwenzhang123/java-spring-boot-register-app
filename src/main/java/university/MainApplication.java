@@ -27,13 +27,13 @@ public class MainApplication {
 	@Bean
 	public CommandLineRunner demo(CourseService repository) {
 		return (args) -> {
-			log.info("Clear data:");
-			log.info("-------------------------------");
-			repository.deleteAll();
-
-			log.info("Insert data for courses:");
-			log.info("-------------------------------");
-			new SeedCourseData(repository);
+//			log.info("Clear data:");
+//			log.info("-------------------------------");
+//			repository.deleteAll();
+//
+//			log.info("Insert data for courses:");
+//			log.info("-------------------------------");
+//			new SeedCourseData(repository);
 		};
 	}
 }

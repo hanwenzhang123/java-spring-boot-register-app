@@ -33,7 +33,7 @@ public class CourseController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping("/course")
+    @PostMapping("/course/create")
     public ResponseEntity<Course> createCourse(@RequestBody Course course) throws URISyntaxException {
         log.info("Request to create course: {}", course);
         Course result = courseService.save(course);
@@ -41,24 +41,24 @@ public class CourseController {
                 .body(result);
     }
 
-    @PutMapping("/course/{id}")
+    @PutMapping("/course/update/{id}")
     public ResponseEntity<Course> updateCourse(@RequestBody Course course) {
         log.info("Request to update course: {}", course);
         Course result = courseService.save(course);
         return ResponseEntity.ok().body(result);
     }
 
-    @DeleteMapping("/course/{id}")
+    @DeleteMapping("/course/delete/{id}")
     public ResponseEntity<?> deleteCourse(@PathVariable Long id) {
         log.info("Request to delete course: {}", id);
         courseService.deleteById(id);
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/course/courseId/{id}")
-    public Optional<Course> getCoursesByCourseId(@PathVariable String id) {
-        id = id.toLowerCase();
-        return courseService.findByCourseId(id);
+    @GetMapping("/course/courseId/{courseId}")
+    public Optional<Course> getCoursesByCourseId(@PathVariable String courseId) {
+        courseId = courseId.toLowerCase();
+        return courseService.findByCourseId(courseId);
     }
 
     @GetMapping("/course/faculty/{name}")
