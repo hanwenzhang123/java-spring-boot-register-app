@@ -1,5 +1,5 @@
 package university.models.types;
 
-public enum FacultyStatus {
+public enum FacultyStatusDataTypes {
     fullTime, partTime
 }

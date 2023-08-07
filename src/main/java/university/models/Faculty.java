@@ -1,18 +1,32 @@
 package university.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import university.models.types.FacultyStatus;
+import university.models.abstracts.Person;
+import university.models.types.FacultyStatusDataTypes;
+
+import java.util.ArrayList;
 
 @Table(name = "faculty")
 public class Faculty extends Person {
-    FacultyStatus facultyStatus;
-    public Faculty(String name, FacultyStatus facultyStatus) {
+    FacultyStatusDataTypes facultyStatus;
+    ArrayList<Course> teachingCourses;
+    String additionalRoles;
+    public Faculty(String name, FacultyStatusDataTypes facultyStatus) {
         super(name, "Faculty");
         this.facultyStatus = facultyStatus;
     }
 
-    @Override
-    void register() {
+    public void setAdditionalRoles(String additionalRoles) {
+        this.additionalRoles = additionalRoles;
+    }
 
+    @Override
+    public void registerCourse(Course course) {
+        teachingCourses.add(course);
+    }
+    @Override
+    public void removeCourse(Course course) {
+        teachingCourses.remove(course);
     }
 }

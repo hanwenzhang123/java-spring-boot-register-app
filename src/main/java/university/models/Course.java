@@ -17,9 +17,7 @@ public class Course {
     private String courseName;
     private String courseCoordinator;
 
-    protected Course() {
-
-    }
+    protected Course() {}
 
     public Course(String courseId, String courseName, String courseCoordinator) {
         this.courseId = courseId;
