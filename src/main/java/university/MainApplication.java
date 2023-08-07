@@ -6,9 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import university.models.Course;
 import university.services.CourseService;
-
+import university.seeds.SeedCourseData;
 import java.util.Collections;
 
 @SpringBootApplication
@@ -28,13 +27,13 @@ public class MainApplication {
 	@Bean
 	public CommandLineRunner demo(CourseService repository) {
 		return (args) -> {
-			//log.info("Clear data:");
+			log.info("Clear data:");
 			log.info("-------------------------------");
-			//repository.deleteAll();
+			repository.deleteAll();
 
-			log.info("Insert data:");
+			log.info("Insert data for courses:");
 			log.info("-------------------------------");
-
+			new SeedCourseData(repository);
 		};
 	}
 }
