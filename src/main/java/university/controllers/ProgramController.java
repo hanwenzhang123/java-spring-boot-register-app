@@ -15,30 +15,33 @@ import university.seeds.SeedProgramData;
 @RestController
 @RequestMapping("/api")
 public class ProgramController {
-    private final Logger log = LoggerFactory.getLogger(WebController.class);
+    private final Logger log = LoggerFactory.getLogger(ProgramController.class);
+
     @Autowired
     private RosterDAOService programService;
 
     @GetMapping("/programs")
-    public List<Program> getAllPrograms(){
+    public List<Object[]> getAllPrograms(){
         new SeedProgramData(programService);
-        Object[] list1 = getAllGraduatePrograms().stream().toArray();
-        Object[] list2 = getAllUndergraduatePrograms().stream().toArray();
-        Object[] list3 = getAllCertificatePrograms().stream().toArray();
-        ArrayList list = new ArrayList();
+        Object[] list1 = getAllGraduatePrograms().toArray();
+        Object[] list2 = getAllUndergraduatePrograms().toArray();
+        Object[] list3 = getAllCertificatePrograms().toArray();
+        ArrayList<Object[]> list = new ArrayList();
         list.add(list1);
         list.add(list2);
         list.add(list3);
         return list;
     }
-    @GetMapping("/programs-graduate")
-    public List<Program> getAllGraduatePrograms(){
-        return programService.getAllGraduatePrograms();
-    }
     @GetMapping("/programs-undergraduate")
     public List<Program> getAllUndergraduatePrograms(){
         return programService.getAllUndergraduatePrograms();
     }
+
+    @GetMapping("/programs-graduate")
+    public List<Program> getAllGraduatePrograms(){
+        return programService.getAllGraduatePrograms();
+    }
+
     @GetMapping("/programs-certificate")
     public List<Program> getAllCertificatePrograms(){
         return programService.getAllCertificatePrograms();

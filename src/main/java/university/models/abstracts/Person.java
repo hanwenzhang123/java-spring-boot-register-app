@@ -7,8 +7,10 @@ import university.models.Course;
 public abstract class Person {
     @Id @GeneratedValue
     private String id;
-    private final String name;
+    private String name;
     private String role;
+
+    public Person(){}
 
     public Person(String name, String role) {
         this.name = name;

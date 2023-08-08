@@ -1,24 +1,31 @@
 package university.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import university.models.abstracts.Person;
 import university.models.types.FacultyStatusDataTypes;
 
 import java.util.ArrayList;
 
+@Entity
 @Table(name = "faculty")
-public class Faculty extends Person {
+public class PersonFaculty extends Person {
+    private @Id
+    @GeneratedValue Long id;
     FacultyStatusDataTypes facultyStatus;
+    @OneToMany
     ArrayList<Course> teachingCourses;
-    String additionalRoles;
-    public Faculty(String name, FacultyStatusDataTypes facultyStatus) {
+    @OneToOne
+    PersonStudent advisingStudent;
+    public PersonFaculty(String name, FacultyStatusDataTypes facultyStatus) {
         super(name, "Faculty");
         this.facultyStatus = facultyStatus;
     }
 
-    public void setAdditionalRoles(String additionalRoles) {
-        this.additionalRoles = additionalRoles;
+    public PersonFaculty() {
+    }
+
+    public void setAdvisingStudent(PersonStudent student) {
+        this.advisingStudent = student;
     }
 
     @Override

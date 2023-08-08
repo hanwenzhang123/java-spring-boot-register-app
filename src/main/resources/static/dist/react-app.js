@@ -4136,10 +4136,10 @@ var NewRecordButton = function NewRecordButton() {
 
 /***/ }),
 
-/***/ "./src/main/javascript/components/Table.jsx":
-/*!**************************************************!*\
-  !*** ./src/main/javascript/components/Table.jsx ***!
-  \**************************************************/
+/***/ "./src/main/javascript/components/TableAction.jsx":
+/*!********************************************************!*\
+  !*** ./src/main/javascript/components/TableAction.jsx ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -4148,36 +4148,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
-var Table = function Table(_ref) {
-  var data = _ref.data;
-  console.log(data);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", {
-    className: "table table-striped table-hover"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
-    scope: "col"
-  }, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
-    scope: "col"
-  }, "Course ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
-    scope: "col"
-  }, "Course Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
-    scope: "col"
-  }, "Course Coordinator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
-    scope: "col"
-  }, "Action"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, data === null || data === void 0 ? void 0 : data.map(function (data) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
-      scope: "row"
-    }, data.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, data.courseId), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, data.courseName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, data.courseCoordinator), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", {
-      colSpan: 2
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-      type: "button",
-      className: "btn btn-primary mr-2"
-    }, "More Information"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-      type: "button",
-      className: "btn btn-danger"
-    }, "Delete")));
-  })));
+var TableAction = function TableAction() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", {
+    colSpan: 2
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "button",
+    className: "btn btn-primary mr-2"
+  }, "More Information"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "button",
+    className: "btn btn-danger"
+  }, "Delete"));
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Table);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TableAction);
+
+/***/ }),
+
+/***/ "./src/main/javascript/components/TableHeader.jsx":
+/*!********************************************************!*\
+  !*** ./src/main/javascript/components/TableHeader.jsx ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var TableHeader = function TableHeader(_ref) {
+  var data = _ref.data;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, data.map(function (data) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+      scope: "col"
+    }, data);
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+    scope: "col"
+  }, "Action")));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TableHeader);
 
 /***/ }),
 
@@ -4192,14 +4200,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Table */ "./src/main/javascript/components/Table.jsx");
-/* harmony import */ var _components_NewRecordButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/NewRecordButton */ "./src/main/javascript/components/NewRecordButton.jsx");
+/* harmony import */ var _components_TableHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/TableHeader */ "./src/main/javascript/components/TableHeader.jsx");
+/* harmony import */ var _components_TableAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/TableAction */ "./src/main/javascript/components/TableAction.jsx");
+/* harmony import */ var _components_NewRecordButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/NewRecordButton */ "./src/main/javascript/components/NewRecordButton.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -4213,6 +4223,7 @@ var AllCoursesMainPage = function AllCoursesMainPage() {
       fetch("http://localhost:8888/api/courses").then(function (response) {
         return response.json();
       }).then(function (data) {
+        console.log(data);
         setCourseData(data);
       });
     };
@@ -4227,9 +4238,15 @@ var AllCoursesMainPage = function AllCoursesMainPage() {
       justifyContent: "space-between",
       alignItems: "center"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "All Courses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NewRecordButton__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Table__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    data: courseData
-  }));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "All Courses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NewRecordButton__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", {
+    className: "table table-striped table-hover"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_TableHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    data: ["ID", "Course ID", " Course Name", "Faculty"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, courseData === null || courseData === void 0 ? void 0 : courseData.map(function (data) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+      scope: "row"
+    }, data.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, data.courseId), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, data.courseName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, data.courseCoordinator), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_TableAction__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+  }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllCoursesMainPage);
 
@@ -4246,8 +4263,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Table */ "./src/main/javascript/components/Table.jsx");
+/* harmony import */ var _components_TableHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/TableHeader */ "./src/main/javascript/components/TableHeader.jsx");
 /* harmony import */ var _components_NewRecordButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/NewRecordButton */ "./src/main/javascript/components/NewRecordButton.jsx");
+/* harmony import */ var _components_TableAction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/TableAction */ "./src/main/javascript/components/TableAction.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -4257,17 +4275,19 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var AllCoursesMainPage = function AllCoursesMainPage() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
-    courseData = _useState2[0],
-    setCourseData = _useState2[1];
+    facultyData = _useState2[0],
+    setFacultyData = _useState2[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var loadData = function loadData() {
-      fetch("http://localhost:8888/api/courses").then(function (response) {
+      fetch("http://localhost:8888/api/faculties").then(function (response) {
         return response.json();
       }).then(function (data) {
-        setCourseData(data);
+        console.log(data);
+        setFacultyData(data);
       });
     };
     loadData();
@@ -4281,9 +4301,15 @@ var AllCoursesMainPage = function AllCoursesMainPage() {
       justifyContent: "space-between",
       alignItems: "center"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "All Faculties"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NewRecordButton__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Table__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    data: courseData
-  }));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "All Faculties"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NewRecordButton__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", {
+    className: "table table-striped table-hover"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_TableHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    data: ["ID"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, facultyData === null || facultyData === void 0 ? void 0 : facultyData.map(function (data) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+      scope: "row"
+    }, data.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_TableAction__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllCoursesMainPage);
 
@@ -4300,8 +4326,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_Table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Table */ "./src/main/javascript/components/Table.jsx");
+/* harmony import */ var _components_TableHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/TableHeader */ "./src/main/javascript/components/TableHeader.jsx");
 /* harmony import */ var _components_NewRecordButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/NewRecordButton */ "./src/main/javascript/components/NewRecordButton.jsx");
+/* harmony import */ var _components_TableAction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/TableAction */ "./src/main/javascript/components/TableAction.jsx");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -4311,17 +4338,19 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var AllCoursesMainPage = function AllCoursesMainPage() {
+
+var AllStudentsMainPage = function AllStudentsMainPage() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
-    courseData = _useState2[0],
-    setCourseData = _useState2[1];
+    studentData = _useState2[0],
+    setStudentData = _useState2[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var loadData = function loadData() {
-      fetch("http://localhost:8888/api/courses").then(function (response) {
+      fetch("http://localhost:8888/api/students").then(function (response) {
         return response.json();
       }).then(function (data) {
-        setCourseData(data);
+        console.log(data);
+        setStudentData(data);
       });
     };
     loadData();
@@ -4335,11 +4364,17 @@ var AllCoursesMainPage = function AllCoursesMainPage() {
       justifyContent: "space-between",
       alignItems: "center"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "All Students"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NewRecordButton__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Table__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    data: courseData
-  }));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "All Students"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_NewRecordButton__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", {
+    className: "table table-striped table-hover"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_TableHeader__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    data: ["ID"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, studentData === null || studentData === void 0 ? void 0 : studentData.map(function (data) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", {
+      scope: "row"
+    }, data.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_TableAction__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  }))));
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllCoursesMainPage);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AllStudentsMainPage);
 
 /***/ }),
 

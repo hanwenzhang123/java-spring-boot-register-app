@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
-import Table from "../components/Table"
+import TableHeader from "../components/TableHeader"
+import TableAction from "../components/TableAction";
 import NewRecordButton from "../components/NewRecordButton";
+
 const AllCoursesMainPage = () => {
     const [courseData, setCourseData] = useState([]);
     useEffect(() => {
@@ -8,6 +10,7 @@ const AllCoursesMainPage = () => {
             fetch("http://localhost:8888/api/courses")
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data);
                     setCourseData(data);
                 })
         };
@@ -29,7 +32,22 @@ const AllCoursesMainPage = () => {
                 <NewRecordButton />
             </div>
 
-            <Table data={courseData} />
+            <table className="table table-striped table-hover">
+                <TableHeader data={["ID", "Course ID", " Course Name", "Faculty"]} />
+                <tbody>
+                {courseData?.map((data)=> {
+                    return (
+                        <tr>
+                            <th scope="row">{data.id}</th>
+                            <td>{data.courseId}</td>
+                            <td>{data.courseName}</td>
+                            <td>{data.courseCoordinator}</td>
+                            <TableAction />
+                        </tr>
+                    )
+                })}
+                </tbody>
+            </table>
         </div>
     );
 }

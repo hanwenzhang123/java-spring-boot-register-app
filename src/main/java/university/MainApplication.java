@@ -24,19 +24,19 @@ public class MainApplication {
 				.singletonMap("server.port", "8888"));
 		app.run(args);
 	}
-	@Bean
-	public CommandLineRunner demo(CourseService repository) {
-		return (args) -> {
-			log.info("Clear data:");
-			log.info("-------------------------------");
-			repository.deleteAll();
-
-			log.info("Insert data for courses:");
-			log.info("-------------------------------");
-			new SeedCourseData(repository);
-
-			log.info("Insert data for programs:");
-			log.info("-------------------------------");
-		};
-	}
+//	@Bean
+//	public CommandLineRunner demo(CourseService repository) {
+//		return (args) -> {
+//			log.info("Clear data:");
+//			log.info("-------------------------------");
+//			repository.deleteAll();
+//
+//			log.info("Insert data for courses:");
+//			log.info("-------------------------------");
+//			new SeedCourseData(repository);
+//
+//			log.info("Insert data for programs:");
+//			log.info("-------------------------------");
+//		};
+//	}
 }
