@@ -3,26 +3,26 @@ package university.models;
 import jakarta.persistence.*;
 import university.models.abstracts.Person;
 
-import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 @Table(name = "student")
 public class PersonStudent extends Person {
     private @Id
     @GeneratedValue Long id;
-
     long gpa;
-
     String thesisTopic;
-    @OneToOne
-    PersonFaculty thesisAdvisor;
-
-    @OneToMany
-    ArrayList<Course> enrolledCourses;
+    @Transient
+    Collection<Course> enrolledCourses;
 
     public PersonStudent() {}
     public PersonStudent(String name) {
         super(name, "Student");
+    }
+
+    @ManyToMany(cascade = CascadeType.REMOVE, mappedBy = "students")
+    public Collection<Course> getEnrolledCourses() {
+        return enrolledCourses;
     }
 
     @Override

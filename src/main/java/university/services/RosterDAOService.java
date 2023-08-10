@@ -89,6 +89,7 @@ public class RosterDAOService implements IRoster {
     @Override
     public List<Person> getAllStudents() {
         Query query = entityManager.createQuery("SELECT c FROM PersonStudent c");
+
         return query.getResultList();
     }
 

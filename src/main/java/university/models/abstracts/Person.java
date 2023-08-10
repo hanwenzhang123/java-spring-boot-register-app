@@ -25,6 +25,6 @@ public abstract class Person {
         this.role = role;
     }
 
-    protected abstract void registerCourse(Course course);
-    protected abstract void removeCourse(Course course);
+    public abstract void registerCourse(Course course);
+    public abstract void removeCourse(Course course);
 }

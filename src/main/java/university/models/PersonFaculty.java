@@ -12,10 +12,10 @@ public class PersonFaculty extends Person {
     private @Id
     @GeneratedValue Long id;
     FacultyStatusDataTypes facultyStatus;
-    @OneToMany
-    ArrayList<Course> teachingCourses;
-    @OneToOne
-    PersonStudent advisingStudent;
+//    @OneToMany
+//    ArrayList<Course> teachingCourses;
+//    @OneToOne
+//    PersonStudent advisingStudent;
     public PersonFaculty(String name, FacultyStatusDataTypes facultyStatus) {
         super(name, "Faculty");
         this.facultyStatus = facultyStatus;
@@ -24,16 +24,15 @@ public class PersonFaculty extends Person {
     public PersonFaculty() {
     }
 
-    public void setAdvisingStudent(PersonStudent student) {
-        this.advisingStudent = student;
-    }
 
     @Override
     public void registerCourse(Course course) {
-        teachingCourses.add(course);
+
+        // teachingCourses.add(course);
     }
     @Override
     public void removeCourse(Course course) {
-        teachingCourses.remove(course);
+
+        // teachingCourses.remove(course);
     }
 }

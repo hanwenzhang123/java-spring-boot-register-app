@@ -13,8 +13,7 @@ public class CourseConcentration implements InformationPrinter {
     @GeneratedValue Long id;
     String name;
     String description;
-    @OneToMany
-    ArrayList<Course> requiredCourses;
+    // ArrayList<Course> requiredCourses;
 
     public CourseConcentration() {}
     public CourseConcentration(String name, String description) {
@@ -23,10 +22,10 @@ public class CourseConcentration implements InformationPrinter {
     }
 
     public void addRequiredCourse(Course course) {
-        requiredCourses.add(course);
+        // requiredCourses.add(course);
     }
     public void removeRequireCourse(Course course) {
-        requiredCourses.remove(course);
+        // requiredCourses.remove(course);
     }
     @Override
     public String getInformation(){

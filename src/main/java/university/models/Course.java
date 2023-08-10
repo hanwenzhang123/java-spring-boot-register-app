@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import university.models.interfaces.InformationPrinter;
 
 import javax.swing.text.html.HTML;
-import java.util.ArrayList;
-import java.util.Set;
+import java.util.Collection;
 
 @Entity
 @NamedQuery(
@@ -22,12 +21,13 @@ public class Course implements InformationPrinter {
     private String description;
     private String syllabus;
 
-    @OneToOne
-    PersonFaculty faculty;
-    @OneToMany
-    ArrayList<PersonStudent> students;
+//    @OneToOne
+//    PersonFaculty faculty;
 
+    @Transient
+    Collection<PersonStudent> students;
 
+    /** Creates a new instance of Course */
     protected Course() {}
 
     public Course(String courseId, String courseName, String courseCoordinator) {
@@ -58,6 +58,11 @@ public class Course implements InformationPrinter {
 
     public String getSyllabus() {
         return syllabus;
+    }
+
+    @ManyToMany(cascade = CascadeType.REMOVE, mappedBy = "enrolledCourses")
+    public Collection<PersonStudent> getStudents() {
+        return students;
     }
 
     @Override
