@@ -9,29 +9,35 @@ import java.util.Collection;
 @Table(name = "student")
 public class PersonStudent extends Person {
     private @Id
-    @GeneratedValue Long id;
-    long gpa;
-    String thesisTopic;
-    @Transient
-    Collection<Course> enrolledCourses;
+    @GeneratedValue
+    @Column(name = "student_id")
+    Long student_id;
 
+//    private Course course;
+
+    /** Creates a new instance of PersonStudent */
     public PersonStudent() {}
+
     public PersonStudent(String name) {
         super(name, "Student");
     }
 
-    @ManyToMany(cascade = CascadeType.REMOVE, mappedBy = "students")
-    public Collection<Course> getEnrolledCourses() {
-        return enrolledCourses;
-    }
+//    @ManyToOne
+//    public Course getCourse() {
+//        return course;
+//    }
+//
+//    public void setCourse(Course course) {
+//        this.course = course;
+//    }
 
     @Override
     public void registerCourse(Course course) {
-        enrolledCourses.add(course);
+
     }
 
     @Override
     public void removeCourse(Course course) {
-        enrolledCourses.remove(course);
+
     }
 }

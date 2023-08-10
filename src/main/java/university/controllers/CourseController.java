@@ -56,9 +56,9 @@ public class CourseController {
     }
 
     @GetMapping("/course/courseId/{courseId}")
-    public Optional<Course> getCoursesByCourseId(@PathVariable String courseId) {
-        courseId = courseId.toLowerCase();
-        return courseService.findByCourseId(courseId);
+    public Optional<Course> getCoursesByCourseId(@PathVariable String courseNumber) {
+        courseNumber = courseNumber.toLowerCase();
+        return courseService.findByCourseNumber(courseNumber);
     }
 
     @GetMapping("/course/faculty/{name}")

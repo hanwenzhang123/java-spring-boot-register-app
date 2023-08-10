@@ -14,34 +14,31 @@ import java.util.Collection;
 @Table(name = "course")
 public class Course implements InformationPrinter {
     private @Id
-    @GeneratedValue Long id;
-    private String courseId;
+    @GeneratedValue
+    @Column(name = "course_id")
+    Long course_id;
+    private String courseNumber;
     private String courseName;
     private String courseCoordinator;
     private String description;
     private String syllabus;
-
-//    @OneToOne
-//    PersonFaculty faculty;
-
-    @Transient
-    Collection<PersonStudent> students;
+//    private Collection<PersonStudent> students;
 
     /** Creates a new instance of Course */
     protected Course() {}
 
-    public Course(String courseId, String courseName, String courseCoordinator) {
-        this.courseId = courseId;
+    public Course(String courseNumber, String courseName, String courseCoordinator) {
+        this.courseNumber = courseNumber;
         this.courseName = courseName;
         this.courseCoordinator = courseCoordinator;
     }
 
     public Long getId() {
-        return id;
+        return course_id;
     }
 
     public String getCourseId() {
-        return courseId;
+        return courseNumber;
     }
 
     public String getCourseName() {
@@ -60,10 +57,14 @@ public class Course implements InformationPrinter {
         return syllabus;
     }
 
-    @ManyToMany(cascade = CascadeType.REMOVE, mappedBy = "enrolledCourses")
-    public Collection<PersonStudent> getStudents() {
-        return students;
-    }
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Course")
+//    public Collection<PersonStudent> getStudents() {
+//        return students;
+//    }
+//
+//    public void setStudents(Collection<PersonStudent> students) {
+//        this.students = students;
+//    }
 
     @Override
     public String getInformation() {
